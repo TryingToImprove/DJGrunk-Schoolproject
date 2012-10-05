@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GrunkedDatabaseModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ActivityTypes" EntityType="GrunkedDatabaseModel.ActivityType" />
+    <EntitySet Name="Albums" EntityType="GrunkedDatabaseModel.Album" />
+    <EntitySet Name="Artists" EntityType="GrunkedDatabaseModel.Artist" />
+    <EntitySet Name="Credentials" EntityType="GrunkedDatabaseModel.Credential" />
+    <EntitySet Name="Genres" EntityType="GrunkedDatabaseModel.Genre" />
+    <EntitySet Name="Grunkers" EntityType="GrunkedDatabaseModel.Grunker" />
+    <EntitySet Name="PictureLocations" EntityType="GrunkedDatabaseModel.PictureLocation" />
+    <EntitySet Name="Pictures" EntityType="GrunkedDatabaseModel.Picture" />
+    <EntitySet Name="ProfileActivities" EntityType="GrunkedDatabaseModel.ProfileActivity" />
+    <EntitySet Name="Profiles" EntityType="GrunkedDatabaseModel.Profile" />
+    <EntitySet Name="Purchases" EntityType="GrunkedDatabaseModel.Purchase" />
+    <EntitySet Name="ReviewLinks" EntityType="GrunkedDatabaseModel.ReviewLink" />
+    <EntitySet Name="Reviews" EntityType="GrunkedDatabaseModel.Review" />
+    <AssociationSet Name="FK_ProfileActivities_ActivityTypes" Association="GrunkedDatabaseModel.FK_ProfileActivities_ActivityTypes">
+      <End Role="ActivityType" EntitySet="ActivityTypes" />
+      <End Role="ProfileActivity" EntitySet="ProfileActivities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Albums_Artists" Association="GrunkedDatabaseModel.FK_Albums_Artists">
+      <End Role="Artist" EntitySet="Artists" />
+      <End Role="Album" EntitySet="Albums" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Albums_Genres" Association="GrunkedDatabaseModel.FK_Albums_Genres">
+      <End Role="Genre" EntitySet="Genres" />
+      <End Role="Album" EntitySet="Albums" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchases_Albums" Association="GrunkedDatabaseModel.FK_Purchases_Albums">
+      <End Role="Album" EntitySet="Albums" />
+      <End Role="Purchase" EntitySet="Purchases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Profiles_Credentials" Association="GrunkedDatabaseModel.FK_Profiles_Credentials">
+      <End Role="Credential" EntitySet="Credentials" />
+      <End Role="Profile" EntitySet="Profiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Grunks_Profiles" Association="GrunkedDatabaseModel.FK_Grunks_Profiles">
+      <End Role="Profile" EntitySet="Profiles" />
+      <End Role="Grunker" EntitySet="Grunkers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PictureLocations_Pictures" Association="GrunkedDatabaseModel.FK_PictureLocations_Pictures">
+      <End Role="Picture" EntitySet="Pictures" />
+      <End Role="PictureLocation" EntitySet="PictureLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfileActivities_Profiles" Association="GrunkedDatabaseModel.FK_ProfileActivities_Profiles">
+      <End Role="Profile" EntitySet="Profiles" />
+      <End Role="ProfileActivity" EntitySet="ProfileActivities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchases_Profiles" Association="GrunkedDatabaseModel.FK_Purchases_Profiles">
+      <End Role="Profile" EntitySet="Profiles" />
+      <End Role="Purchase" EntitySet="Purchases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reviews_Profiles" Association="GrunkedDatabaseModel.FK_Reviews_Profiles">
+      <End Role="Profile" EntitySet="Profiles" />
+      <End Role="Review" EntitySet="Reviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReviewLink_Reviews" Association="GrunkedDatabaseModel.FK_ReviewLink_Reviews">
+      <End Role="Review" EntitySet="Reviews" />
+      <End Role="ReviewLink" EntitySet="ReviewLinks" />
+    </AssociationSet>
+    <AssociationSet Name="AlbumPictures" Association="GrunkedDatabaseModel.AlbumPictures">
+      <End Role="Album" EntitySet="Albums" />
+      <End Role="Picture" EntitySet="Pictures" />
+    </AssociationSet>
+    <AssociationSet Name="ProfilePictures" Association="GrunkedDatabaseModel.ProfilePictures">
+      <End Role="Picture" EntitySet="Pictures" />
+      <End Role="Profile" EntitySet="Profiles" />
+    </AssociationSet>
+    <AssociationSet Name="ReviewPictures" Association="GrunkedDatabaseModel.ReviewPictures">
+      <End Role="Picture" EntitySet="Pictures" />
+      <End Role="Review" EntitySet="Reviews" />
+    </AssociationSet>
+    <EntitySet Name="StaticTexts" EntityType="GrunkedDatabaseModel.StaticText" />
+  </EntityContainer>
+  <EntityType Name="ActivityType">
+    <Key>
+      <PropertyRef Name="ActivityTypeId" />
+    </Key>
+    <Property Type="Int32" Name="ActivityTypeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ProfileActivities" Relationship="GrunkedDatabaseModel.FK_ProfileActivities_ActivityTypes" FromRole="ActivityType" ToRole="ProfileActivity" />
+    <Property Type="String" Name="PrettyName" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Album">
+    <Key>
+      <PropertyRef Name="AlbumId" />
+    </Key>
+    <Property Type="Int32" Name="AlbumId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ArtistId" Nullable="false" />
+    <Property Type="DateTime" Name="CreationDateTime" Nullable="false" />
+    <Property Type="Int32" Name="GenreId" Nullable="false" />
+    <Property Type="Int16" Name="Price" Nullable="false" />
+    <NavigationProperty Name="Artist" Relationship="GrunkedDatabaseModel.FK_Albums_Artists" FromRole="Album" ToRole="Artist" />
+    <NavigationProperty Name="Genre" Relationship="GrunkedDatabaseModel.FK_Albums_Genres" FromRole="Album" ToRole="Genre" />
+    <NavigationProperty Name="Purchases" Relationship="GrunkedDatabaseModel.FK_Purchases_Albums" FromRole="Album" ToRole="Purchase" />
+    <NavigationProperty Name="Pictures" Relationship="GrunkedDatabaseModel.AlbumPictures" FromRole="Album" ToRole="Picture" />
+  </EntityType>
+  <EntityType Name="Artist">
+    <Key>
+      <PropertyRef Name="ArtistId" />
+    </Key>
+    <Property Type="Int32" Name="ArtistId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Albums" Relationship="GrunkedDatabaseModel.FK_Albums_Artists" FromRole="Artist" ToRole="Album" />
+  </EntityType>
+  <EntityType Name="Credential">
+    <Key>
+      <PropertyRef Name="CredentialsId" />
+    </Key>
+    <Property Type="Int32" Name="CredentialsId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsSystemUser" Nullable="false" />
+    <Property Type="String" Name="FirstName" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LastName" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Profiles" Relationship="GrunkedDatabaseModel.FK_Profiles_Credentials" FromRole="Credential" ToRole="Profile" />
+  </EntityType>
+  <EntityType Name="Genre">
+    <Key>
+      <PropertyRef Name="GenreId" />
+    </Key>
+    <Property Type="Int32" Name="GenreId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Albums" Relationship="GrunkedDatabaseModel.FK_Albums_Genres" FromRole="Genre" ToRole="Album" />
+  </EntityType>
+  <EntityType Name="Grunker">
+    <Key>
+      <PropertyRef Name="GrunkId" />
+    </Key>
+    <Property Type="Int32" Name="ProfileId" Nullable="false" />
+    <Property Type="Int32" Name="GrunkId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="Sum" Nullable="false" />
+    <NavigationProperty Name="Profile" Relationship="GrunkedDatabaseModel.FK_Grunks_Profiles" FromRole="Grunker" ToRole="Profile" />
+  </EntityType>
+  <EntityType Name="PictureLocation">
+    <Key>
+      <PropertyRef Name="PictureId" />
+    </Key>
+    <Property Type="Int32" Name="PictureId" Nullable="false" />
+    <Property Type="String" Name="FileName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Path" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Picture" Relationship="GrunkedDatabaseModel.FK_PictureLocations_Pictures" FromRole="PictureLocation" ToRole="Picture" />
+  </EntityType>
+  <EntityType Name="Picture">
+    <Key>
+      <PropertyRef Name="PictureId" />
+    </Key>
+    <Property Type="Int32" Name="PictureId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="Width" Nullable="false" />
+    <Property Type="Int32" Name="Height" Nullable="false" />
+    <Property Type="String" Name="FileName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Path" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="UploadedDateTime" Nullable="false" />
+    <NavigationProperty Name="PictureLocation" Relationship="GrunkedDatabaseModel.FK_PictureLocations_Pictures" FromRole="Picture" ToRole="PictureLocation" />
+    <NavigationProperty Name="Albums" Relationship="GrunkedDatabaseModel.AlbumPictures" FromRole="Picture" ToRole="Album" />
+    <NavigationProperty Name="Profiles" Relationship="GrunkedDatabaseModel.ProfilePictures" FromRole="Picture" ToRole="Profile" />
+    <NavigationProperty Name="Reviews" Relationship="GrunkedDatabaseModel.ReviewPictures" FromRole="Picture" ToRole="Review" />
+  </EntityType>
+  <EntityType Name="ProfileActivity">
+    <Key>
+      <PropertyRef Name="ActivityId" />
+    </Key>
+    <Property Type="Int32" Name="ActivityId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ProfileId" Nullable="false" />
+    <Property Type="Int32" Name="ActivityTypeId" Nullable="false" />
+    <Property Type="DateTime" Name="CreationDateTime" Nullable="false" />
+    <NavigationProperty Name="ActivityType" Relationship="GrunkedDatabaseModel.FK_ProfileActivities_ActivityTypes" FromRole="ProfileActivity" ToRole="ActivityType" />
+    <NavigationProperty Name="Profile" Relationship="GrunkedDatabaseModel.FK_ProfileActivities_Profiles" FromRole="ProfileActivity" ToRole="Profile" />
+  </EntityType>
+  <EntityType Name="Profile">
+    <Key>
+      <PropertyRef Name="ProfileId" />
+    </Key>
+    <Property Type="Int32" Name="ProfileId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="CredentialsId" Nullable="false" />
+    <NavigationProperty Name="Credential" Relationship="GrunkedDatabaseModel.FK_Profiles_Credentials" FromRole="Profile" ToRole="Credential" />
+    <NavigationProperty Name="Grunkers" Relationship="GrunkedDatabaseModel.FK_Grunks_Profiles" FromRole="Profile" ToRole="Grunker" />
+    <NavigationProperty Name="ProfileActivities" Relationship="GrunkedDatabaseModel.FK_ProfileActivities_Profiles" FromRole="Profile" ToRole="ProfileActivity" />
+    <NavigationProperty Name="Purchases" Relationship="GrunkedDatabaseModel.FK_Purchases_Profiles" FromRole="Profile" ToRole="Purchase" />
+    <NavigationProperty Name="Reviews" Relationship="GrunkedDatabaseModel.FK_Reviews_Profiles" FromRole="Profile" ToRole="Review" />
+    <NavigationProperty Name="Pictures" Relationship="GrunkedDatabaseModel.ProfilePictures" FromRole="Profile" ToRole="Picture" />
+  </EntityType>
+  <EntityType Name="Purchase">
+    <Key>
+      <PropertyRef Name="ProfileId" />
+      <PropertyRef Name="AlbumId" />
+    </Key>
+    <Property Type="Int32" Name="ProfileId" Nullable="false" />
+    <Property Type="Int32" Name="AlbumId" Nullable="false" />
+    <Property Type="Int16" Name="Price" Nullable="false" />
+    <Property Type="DateTime" Name="PurchasedDateTime" Nullable="false" />
+    <NavigationProperty Name="Album" Relationship="GrunkedDatabaseModel.FK_Purchases_Albums" FromRole="Purchase" ToRole="Album" />
+    <NavigationProperty Name="Profile" Relationship="GrunkedDatabaseModel.FK_Purchases_Profiles" FromRole="Purchase" ToRole="Profile" />
+  </EntityType>
+  <EntityType Name="ReviewLink">
+    <Key>
+      <PropertyRef Name="ReviewId" />
+    </Key>
+    <Property Type="Int32" Name="ReviewId" Nullable="false" />
+    <Property Type="String" Name="Url" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Review" Relationship="GrunkedDatabaseModel.FK_ReviewLink_Reviews" FromRole="ReviewLink" ToRole="Review" />
+  </EntityType>
+  <EntityType Name="Review">
+    <Key>
+      <PropertyRef Name="ReviewId" />
+    </Key>
+    <Property Type="Int32" Name="ReviewId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="DateTime" Name="CreationDateTime" Nullable="false" />
+    <Property Type="Int32" Name="ProfileId" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Int16" Name="State" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Profile" Relationship="GrunkedDatabaseModel.FK_Reviews_Profiles" FromRole="Review" ToRole="Profile" />
+    <NavigationProperty Name="ReviewLink" Relationship="GrunkedDatabaseModel.FK_ReviewLink_Reviews" FromRole="Review" ToRole="ReviewLink" />
+    <NavigationProperty Name="Pictures" Relationship="GrunkedDatabaseModel.ReviewPictures" FromRole="Review" ToRole="Picture" />
+  </EntityType>
+  <Association Name="FK_ProfileActivities_ActivityTypes">
+    <End Type="GrunkedDatabaseModel.ActivityType" Role="ActivityType" Multiplicity="1" />
+    <End Type="GrunkedDatabaseModel.ProfileActivity" Role="ProfileActivity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActivityType">
+        <PropertyRef Name="ActivityTypeId" />
+      </Principal>
+      <Dependent Role="ProfileActivity">
+        <PropertyRef Name="ActivityTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Albums_Artists">
+    <End Type="GrunkedDatabaseModel.Artist" Role="Artist" Multiplicity="1" />
+    <End Type="GrunkedDatabaseModel.Album" Role="Album" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artist">
+        <PropertyRef Name="ArtistId" />
+      </Principal>
+      <Dependent Role="Album">
+        <PropertyRef Name="ArtistId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Albums_Genres">
+    <End Type="GrunkedDatabaseModel.Genre" Role="Genre" Multiplicity="1" />
+    <End Type="GrunkedDatabaseModel.Album" Role="Album" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genre">
+        <PropertyRef Name="GenreId" />
+      </Principal>
+      <Dependent Role="Album">
+        <PropertyRef Name="GenreId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchases_Albums">
+    <End Type="GrunkedDatabaseModel.Album" Role="Album" Multiplicity="1" />
+    <End Type="GrunkedDatabaseModel.Purchase" Role="Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Album">
+        <PropertyRef Name="AlbumId" />
+      </Principal>
+      <Dependent Role="Purchase">
+        <PropertyRef Name="AlbumId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Profiles_Credentials">
+    <End Type="GrunkedDatabaseModel.Credential" Role="Credential" Multiplicity="1" />
+    <End Type="GrunkedDatabaseModel.Profile" Role="Profile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Credential">
+        <PropertyRef Name="CredentialsId" />
+      </Principal>
+      <Dependent Role="Profile">
+        <PropertyRef Name="CredentialsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Grunks_Profiles">
+    <End Type="GrunkedDatabaseModel.Profile" Role="Profile" Multiplicity="1" />
+    <End Type="GrunkedDatabaseModel.Grunker" Role="Grunker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profile">
+        <PropertyRef Name="ProfileId" />
+      </Principal>
+      <Dependent Role="Grunker">
+        <PropertyRef Name="ProfileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PictureLocations_Pictures">
+    <End Type="GrunkedDatabaseModel.Picture" Role="Picture" Multiplicity="1" />
+    <End Type="GrunkedDatabaseModel.PictureLocation" Role="PictureLocation" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Picture">
+        <PropertyRef Name="PictureId" />
+      </Principal>
+      <Dependent Role="PictureLocation">
+        <PropertyRef Name="PictureId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfileActivities_Profiles">
+    <End Type="GrunkedDatabaseModel.Profile" Role="Profile" Multiplicity="1" />
+    <End Type="GrunkedDatabaseModel.ProfileActivity" Role="ProfileActivity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profile">
+        <PropertyRef Name="ProfileId" />
+      </Principal>
+      <Dependent Role="ProfileActivity">
+        <PropertyRef Name="ProfileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchases_Profiles">
+    <End Type="GrunkedDatabaseModel.Profile" Role="Profile" Multiplicity="1" />
+    <End Type="GrunkedDatabaseModel.Purchase" Role="Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profile">
+        <PropertyRef Name="ProfileId" />
+      </Principal>
+      <Dependent Role="Purchase">
+        <PropertyRef Name="ProfileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reviews_Profiles">
+    <End Type="GrunkedDatabaseModel.Profile" Role="Profile" Multiplicity="1" />
+    <End Type="GrunkedDatabaseModel.Review" Role="Review" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profile">
+        <PropertyRef Name="ProfileId" />
+      </Principal>
+      <Dependent Role="Review">
+        <PropertyRef Name="ProfileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReviewLink_Reviews">
+    <End Type="GrunkedDatabaseModel.Review" Role="Review" Multiplicity="1" />
+    <End Type="GrunkedDatabaseModel.ReviewLink" Role="ReviewLink" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Review">
+        <PropertyRef Name="ReviewId" />
+      </Principal>
+      <Dependent Role="ReviewLink">
+        <PropertyRef Name="ReviewId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AlbumPictures">
+    <End Type="GrunkedDatabaseModel.Album" Role="Album" Multiplicity="*" />
+    <End Type="GrunkedDatabaseModel.Picture" Role="Picture" Multiplicity="*" />
+  </Association>
+  <Association Name="ProfilePictures">
+    <End Type="GrunkedDatabaseModel.Picture" Role="Picture" Multiplicity="*" />
+    <End Type="GrunkedDatabaseModel.Profile" Role="Profile" Multiplicity="*" />
+  </Association>
+  <Association Name="ReviewPictures">
+    <End Type="GrunkedDatabaseModel.Picture" Role="Picture" Multiplicity="*" />
+    <End Type="GrunkedDatabaseModel.Review" Role="Review" Multiplicity="*" />
+  </Association>
+  <EntityType Name="StaticText">
+    <Key>
+      <PropertyRef Name="Position" />
+    </Key>
+    <Property Type="String" Name="Header" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Text" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Position" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

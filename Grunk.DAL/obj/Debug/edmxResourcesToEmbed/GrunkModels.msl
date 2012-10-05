@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GrunkedDatabaseModelStoreContainer" CdmEntityContainer="GrunkedDatabaseEntities">
+    <EntitySetMapping Name="ActivityTypes">
+      <EntityTypeMapping TypeName="GrunkedDatabaseModel.ActivityType">
+        <MappingFragment StoreEntitySet="ActivityTypes">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ActivityTypeId" ColumnName="ActivityTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Albums">
+      <EntityTypeMapping TypeName="GrunkedDatabaseModel.Album">
+        <MappingFragment StoreEntitySet="Albums">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="GenreId" ColumnName="GenreId" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="ArtistId" ColumnName="ArtistId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Artists">
+      <EntityTypeMapping TypeName="GrunkedDatabaseModel.Artist">
+        <MappingFragment StoreEntitySet="Artists">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ArtistId" ColumnName="ArtistId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genres">
+      <EntityTypeMapping TypeName="GrunkedDatabaseModel.Genre">
+        <MappingFragment StoreEntitySet="Genres">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="GenreId" ColumnName="GenreId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grunks">
+      <EntityTypeMapping TypeName="GrunkedDatabaseModel.Grunk">
+        <MappingFragment StoreEntitySet="Grunks">
+          <ScalarProperty Name="Sum" ColumnName="Sum" />
+          <ScalarProperty Name="GrunkId" ColumnName="GrunkId" />
+          <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PictureLocations">
+      <EntityTypeMapping TypeName="GrunkedDatabaseModel.PictureLocation">
+        <MappingFragment StoreEntitySet="PictureLocations">
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="PictureId" ColumnName="PictureId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pictures">
+      <EntityTypeMapping TypeName="GrunkedDatabaseModel.Picture">
+        <MappingFragment StoreEntitySet="Pictures">
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Width" ColumnName="Width" />
+          <ScalarProperty Name="PictureId" ColumnName="PictureId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="GrunkedDatabaseModel.Product">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfileActivities">
+      <EntityTypeMapping TypeName="GrunkedDatabaseModel.ProfileActivity">
+        <MappingFragment StoreEntitySet="ProfileActivities">
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="ActivityTypeId" ColumnName="ActivityTypeId" />
+          <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+          <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profiles">
+      <EntityTypeMapping TypeName="GrunkedDatabaseModel.Profile">
+        <MappingFragment StoreEntitySet="Profiles">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reviews">
+      <EntityTypeMapping TypeName="GrunkedDatabaseModel.Review">
+        <MappingFragment StoreEntitySet="Reviews">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="ReviewId" ColumnName="ReviewId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AlbumPictures" TypeName="GrunkedDatabaseModel.AlbumPictures" StoreEntitySet="AlbumPictures">
+      <EndProperty Name="Picture">
+        <ScalarProperty Name="PictureId" ColumnName="PictureId" />
+      </EndProperty>
+      <EndProperty Name="Album">
+        <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProfilePictures" TypeName="GrunkedDatabaseModel.ProfilePictures" StoreEntitySet="ProfilePictures">
+      <EndProperty Name="Profile">
+        <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+      </EndProperty>
+      <EndProperty Name="Picture">
+        <ScalarProperty Name="PictureId" ColumnName="PictureId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Purchases" TypeName="GrunkedDatabaseModel.Purchases" StoreEntitySet="Purchases">
+      <EndProperty Name="Profile">
+        <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+      </EndProperty>
+      <EndProperty Name="Product">
+        <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ReviewPictures" TypeName="GrunkedDatabaseModel.ReviewPictures" StoreEntitySet="ReviewPictures">
+      <EndProperty Name="Review">
+        <ScalarProperty Name="ReviewId" ColumnName="ReviewId" />
+      </EndProperty>
+      <EndProperty Name="Picture">
+        <ScalarProperty Name="PictureId" ColumnName="PictureId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="GrunkedDatabaseModel.Admin">
+        <MappingFragment StoreEntitySet="Admins">
+          <ScalarProperty Name="IsSystemUser" ColumnName="IsSystemUser" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

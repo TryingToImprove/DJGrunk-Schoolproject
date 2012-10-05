@@ -1,0 +1,7 @@
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.Security.Authentication\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.Security.Authentication\bin\Debug\Grunk.Security.Authentication.dll
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.Security.Authentication\bin\Debug\Grunk.Security.Authentication.pdb
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.Security.Authentication\bin\Debug\Grunk.Security.dll
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.Security.Authentication\bin\Debug\Grunk.Security.pdb
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.Security.Authentication\obj\Debug\Grunk.Security.Authentication.dll
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.Security.Authentication\obj\Debug\Grunk.Security.Authentication.pdb

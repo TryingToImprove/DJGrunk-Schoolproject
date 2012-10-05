@@ -1,0 +1,13 @@
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.Services\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.Services\bin\Debug\Grunk.Services.dll
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.Services\bin\Debug\Grunk.Services.pdb
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.Services\bin\Debug\Grunk.DAL.dll
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.Services\bin\Debug\Grunk.Domain.dll
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.Services\bin\Debug\Grunk.DAL.pdb
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.Services\bin\Debug\Grunk.Domain.pdb
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.Services\obj\Debug\Grunk.Services.dll
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.Services\obj\Debug\Grunk.Services.pdb
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.Services\bin\Debug\Grunk.Security.Authentication.dll
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.Services\bin\Debug\Grunk.Security.dll
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.Services\bin\Debug\Grunk.Security.Authentication.pdb
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.Services\bin\Debug\Grunk.Security.pdb

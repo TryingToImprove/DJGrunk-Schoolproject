@@ -1,0 +1,8 @@
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.DAL\bin\Debug\Grunk.DAL.dll
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.DAL\bin\Debug\Grunk.DAL.pdb
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.DAL\bin\Debug\Grunk.Domain.dll
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.DAL\bin\Debug\Grunk.Domain.pdb
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.DAL\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.DAL\obj\Debug\Grunk.DAL.dll
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.DAL\obj\Debug\Grunk.DAL.pdb
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.DAL\bin\Debug\Grunk.DAL.dll.config

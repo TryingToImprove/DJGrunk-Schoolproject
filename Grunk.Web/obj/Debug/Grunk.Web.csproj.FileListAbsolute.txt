@@ -1,0 +1,9 @@
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.Web\bin\Debug\Grunk.Web.dll
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.Web\bin\Debug\Grunk.Web.pdb
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.Web\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.Web\obj\Debug\Grunk.Web.dll
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.Web\obj\Debug\Grunk.Web.pdb
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.Web\bin\Debug\Grunk.Security.dll
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.Web\bin\Debug\Grunk.Security.pdb
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.Web\bin\Debug\Grunk.Domain.dll
+C:\Users\172118\Documents\Visual Studio 2010\Projects\Svendeprøve\src\Grunk\Grunk.Web\bin\Debug\Grunk.Domain.pdb
