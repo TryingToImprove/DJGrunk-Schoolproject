@@ -1,0 +1,165 @@
+﻿@model IndexStoreDetailsViewModel
+@Html.Partial("_Messages")
+@using (Html.BeginForm("Index", "StoreDetails", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <fieldset>
+        <legend>Informationer</legend>
+        <div class="control-group">
+            <label class="control-label">
+                Navn:
+            </label>
+            <div class="controls">
+                @Html.TextBoxFor(x => x.Name)
+                @Html.ValidationMessageFor(x => x.Name)
+            </div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Addresse</legend>
+        <div class="control-group">
+            <label class="control-label">
+                Vejnavn:
+            </label>
+            <div class="controls">
+                @Html.TextBoxFor(x => x.Address.Road)
+                @Html.ValidationMessageFor(x => x.Address.Road)
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">
+                Nummer:
+            </label>
+            <div class="controls">
+                @Html.TextBoxFor(x => x.Address.Number)
+                @Html.ValidationMessageFor(x => x.Address.Number)
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">
+                Postnummer:
+            </label>
+            <div class="controls">
+                @Html.TextBoxFor(x => x.Address.Postal)
+                @Html.ValidationMessageFor(x => x.Address.Postal)
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">
+                Bynavn:
+            </label>
+            <div class="controls">
+                @Html.TextBoxFor(x => x.Address.Town)
+                @Html.ValidationMessageFor(x => x.Address.Town)
+            </div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Kontaktoplysninger</legend>
+        <div class="control-group">
+            <label class="control-label">
+                Email:
+            </label>
+            <div class="controls">
+                @Html.TextBoxFor(x => x.Contact.Email)
+                @Html.ValidationMessageFor(x => x.Contact.Email)
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">
+                Telefon nr.:
+            </label>
+            <div class="controls">
+                @Html.TextBoxFor(x => x.Contact.Telephone)
+                @Html.ValidationMessageFor(x => x.Contact.Telephone)
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">
+                Mobil nr.:
+            </label>
+            <div class="controls">
+                @Html.TextBoxFor(x => x.Contact.Fax)
+                @Html.ValidationMessageFor(x => x.Contact.Fax)
+            </div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Åbningstider</legend>
+        @for (var i = 0; i < 7; i++)
+        {
+            var hour = Model.StoreDetails.GetOpenHourByDayIndex(i);
+            string opening = "", closeing = "";
+            if (hour != null)
+            {
+                opening = hour.Opening.ToString();
+                closeing = hour.Closeing.ToString();
+            }
+
+            bool isOpen = (hour.Opening >= 0 && hour.Closeing >= 0);
+
+            string checkBoxId = "openClose_" + i;
+            string textBoxContainerId = "txtContainerOpenClose_" + i;
+
+            object htmlAttributes = null;
+            if (!isOpen)
+            {
+                opening = "Lukket";
+                closeing = "Lukket";
+                htmlAttributes = new { @class = "uneditable-input", @readonly = "readonly" };
+            }
+            
+            <div class="control-group">
+                <label class="control-label">
+                    @Html.TranslateEnglishDay(i, "da-DK"):
+                </label>
+                <div class="controls controls-row">
+                    <div class="span5" id="@textBoxContainerId">
+                        @Html.TextBox("OpeningHour[" + i + "]", opening, htmlAttributes)
+                        @Html.ValidationMessage("OpeningHour[" + i + "]")
+                        til
+                        @Html.TextBox("CloseingHour[" + i + "]", closeing, htmlAttributes)
+                        @Html.ValidationMessage("CloseingHour[" + i + "]")
+                    </div>
+                    <div class="span4">
+                        <label class="checkbox inline">
+                            <input type="radio" name="@checkBoxId" data-container="#@textBoxContainerId" @if (isOpen)
+                                                                                                         { <text>checked="checked"</text> } class="checkbox-field" value="open" />
+                            Åben
+                        </label>
+                        <label class="checkbox inline">
+                            <input type="radio" name="@checkBoxId" data-container="#@textBoxContainerId" @if (!isOpen)
+                                                                                                         { <text>checked="checked"</text> } class="checkbox-field" value="closed" />
+                            Lukket
+                        </label>
+                    </div>
+                </div>
+            </div>            
+        }
+    </fieldset>
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">
+            Gem ændringer</button>
+    </div>
+}
+@section CustomJavascript{
+    <script>
+        $(function () {
+            $(".checkbox-field").change(function (e) {
+                var $this = $(this),
+                    isOpen = ($this.val() === "closed") ? false : true;
+
+                if (isOpen) {
+                    $($this.data("container") + " > input")
+                        .val("")
+                        .removeClass("uneditable-input")
+                        .removeAttr("readonly");
+                } else {
+                    $($this.data("container") + " > input")
+                        .val("Lukket")
+                        .attr("readonly", "readonly")
+                        .addClass("uneditable-input");
+                }
+            });
+        });
+    </script>
+}

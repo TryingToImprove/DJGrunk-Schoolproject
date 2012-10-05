@@ -1,0 +1,36 @@
+﻿@model ContactInformationViewModel
+<div class="detail">
+    <label>
+        Adresse:
+    </label>
+    <div class="details">
+        <p>
+            @Model.Name<br />
+            @Model.Road<br />
+            @Model.Town
+        </p>
+    </div>
+</div>
+<div class="detail">
+    <label>
+        Åbningstider:
+    </label>
+    <div class="details">
+        @foreach (string item in Model.StoreDetails.GetPrettyOpeningHours())
+        {
+            <div class="period">@Html.Raw(item)</div>
+        }
+    </div>
+</div>
+<div class="detail">
+    <label>
+        Kontaktoplysninger:
+    </label>
+    <div class="details">
+        <p>
+            Telefon: @Model.Telephone<br />
+            Fax: @Model.Fax<br />
+            Email: @Model.Email
+        </p>
+    </div>
+</div>

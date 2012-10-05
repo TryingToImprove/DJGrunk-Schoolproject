@@ -1,0 +1,33 @@
+﻿@model Grunk.Web.UI.Areas.Administration.Models.ProductFormViewModel
+<div class="control-group">
+    <label class="control-label">
+        Album:</label>
+    <div class="controls">
+        @Html.EditorFor(model => model.AlbumName)
+        @Html.ValidationMessageFor(model => model.AlbumName)
+    </div>
+</div>
+<div class="control-group">
+    <label class="control-label">
+        Artist:</label>
+    <div class="controls">
+        @Html.EditorFor(model => model.ArtistName)
+        @Html.ValidationMessageFor(model => model.ArtistName)
+    </div>
+</div>
+<div class="control-group">
+    <label class="control-label">
+        Pris:</label>
+    <div class="controls">
+        @Html.DropDownListFor(model => model.Price, Model.PossiblePrices)
+        @Html.ValidationMessageFor(model => model.Price)
+    </div>
+</div>
+<div class="control-group">
+    <label class="control-label">
+        Genre:</label>
+    <div class="controls">
+        @Html.DropDownListFor(model => model.GenreId, new SelectList(Model.PossibleGenres, "value", "text", Model.GenreId), "Vælg genre.." )
+        @Html.ValidationMessageFor(model => model.GenreId)
+    </div>
+</div>

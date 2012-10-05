@@ -1,0 +1,13 @@
+﻿@model IndexHomeViewModel
+<div class="row frontpage">
+    <div class="cell-one">
+        @Html.Action("TopList", "Utility")
+    </div>
+    <div class="cell-two">
+        <div class="welcome-text">
+            <h1>@Model.Text.Header</h1>
+            @Html.Raw(Model.Text.HtmlText)
+        </div>
+        @Html.Action("NewestReview", "Utility")
+    </div>
+</div>

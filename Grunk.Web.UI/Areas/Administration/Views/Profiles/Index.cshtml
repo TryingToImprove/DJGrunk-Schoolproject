@@ -1,0 +1,86 @@
+﻿@model IndexProfilesViewModel
+@{
+    ViewBag.Title = "Index";
+}
+<div class="page-header">
+    <div class="pull-right">
+        @using (Html.BeginForm("Grunks", "Profiles", FormMethod.Post, new { @style = "display:inline-block; margin:0" }))
+        {
+            <input type="submit" class="btn" value="Reset alle brugers grunker til 1.500" />
+        }
+    </div>
+    <h1>
+        Oversigt over brugere</h1>
+</div>
+@Html.Partial("_Messages")
+<table class="table">
+    <tr>
+        <th width="50">
+        </th>
+        <th>
+            Brugernavn
+        </th>
+        <th>
+            Beskrivelse
+        </th>
+        <th width="200">
+            Sidste aktivitet
+        </th>
+        <th>
+            Grunks modtaget ialt
+        </th>
+        <th>
+            Brugt
+        </th>
+        <th>
+            Tilbage
+        </th>
+        <th width="50">
+            Admin?
+        </th>
+        <th width="350">
+        </th>
+    </tr>
+    @foreach (var item in Model.Profiles)
+    {
+        <tr>
+            <td>
+                <img src="@item.GetPicture(50, 50)" alt="profilbillede" />
+            </td>
+            <td>
+                @item.Credential.UserName
+            </td>
+            <td>
+                @item.Description
+            </td>
+            <td>
+                @item.LastActivity.CreationDateTime
+                <br />
+                - @item.LastActivity.ActivityType.PrettyName
+            </td>
+            <td>
+                @item.Grunkers.Sum(x => x.Sum)
+            </td>
+            <td>
+                @item.Purchases.Sum(x => x.Price)
+            </td>
+            <td>
+                @item.GetSum()
+            </td>
+            <td>
+                @Html.CheckBoxFor(x => item.Credential.IsSystemUser, new { disabled = "disabled" })
+            </td>
+            <td>
+                @Html.ActionLink("Ret beskrivelse", "Update", new { id = item.ProfileId }, new { @class = "btn" })
+                @using (Html.BeginForm("Grunks", "Profiles", new { id = item.ProfileId }, FormMethod.Post, new { @style = "display:inline-block; margin:0" }))
+                {
+                    <input type="submit" class="btn" value="Giv 500 grunker" />
+                }
+                @using (Html.BeginForm("Delete", "Profiles", new { id = item.ProfileId }, FormMethod.Post, new { @style = "padding-left:4px;display:inline-block; margin:0" }))
+                {
+                    <input type="submit" class="btn" value="Slet" />
+                }
+            </td>
+        </tr>
+    }
+</table>

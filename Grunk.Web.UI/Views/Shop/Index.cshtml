@@ -1,0 +1,88 @@
+﻿@model IndexShopViewModel
+<div class="shop-index">
+    <h1>
+        Butikken</h1>
+    <p>
+        Her kan du bruge dine Grunker til at stemme dine favoritter ind på Grunklisten.
+        Klik på KUNSTER, TITEL, GENRE eller OPRETTET for at storere listen
+    </p>
+    <p>
+        Klik på indkøbsvognen når du har fundet dit yndlings albun, så er den et sjrudt
+        tættere på listen (hvsi du altså har Grunker nok)
+    </p>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th class="picture-cell">
+                    </th>
+                    <th class="artist-cell">
+                        <a href="@Url.Action("Index", "Shop", new { sortBy = "" })">Kunster</a>
+                    </th>
+                    <th class="title-cell">
+                        <a href="@Url.Action("Index", "Shop", new { sortBy = "title" })">Titel</a>
+                    </th>
+                    <th class="genre-cell">
+                        <a href="@Url.Action("Index", "Shop", new { sortBy = "genre" })">Genre</a>
+                    </th>
+                    <th class="creation-cell">
+                        <a href="@Url.Action("Index", "Shop", new { sortBy = "newst" })">Oprettet</a>
+                    </th>
+                    <th class="price-cell">
+                        Pris
+                    </th>
+                    <th class="purchase-cell">
+                        Køb
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @{ int index = 0; }
+                @foreach (var item in Model.Albums)
+                {
+                    bool isSecond = (index % 2 == 1);
+                    index++;
+                    <tr @if (isSecond)
+                        { <text>class="second-row"</text>}>
+                        <td class="picture-cell">
+                            <a href="@Url.Action("Details", "Shop", new { id = item.AlbumId })">
+                                <img src="@item.GetPicture(50, 50)" alt="Album cover" /></a>
+                        </td>
+                        <td class="artist-cell">
+                            <a href="@Url.Action("Details", "Shop", new { id = item.AlbumId })">@item.Artist.Name</a>
+                        </td>
+                        <td class="title-cell">
+                            <a href="@Url.Action("Details", "Shop", new { id = item.AlbumId })">@item.Name</a>
+                        </td>
+                        <td class="genre-cell">
+                            @item.Genre.Name
+                        </td>
+                        <td class="creation-cell">
+                            @item.CreationDateTime.ToString("dd/MM/yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo)
+                        </td>
+                        <td class="price-cell">
+                            @item.Price Grunker
+                        </td>
+                        <td class="purchase-cell">
+                            <a class="buy-album" data-albumName="@item.Name" data-largePicture="@item.GetPicture(200, 200)" data-artistName="@item.Artist.Name" data-price="@item.Price" data-albumId="@item.AlbumId" href="@Url.Action("VerifyPurchase", new { id = item.AlbumId })">
+                                <img src="/Content/GFX/basket.png" alt="Kurv" /></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="7">
+                        @Html.Partial("_Pagination", Model.Paged)
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+<div id="buy-module" class="module-popup hide">
+</div>
+<script src="@Url.Content("~/Scripts/handlebars-1.0.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/underscore.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/backbone.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/scripts.js")" type="text/javascript"></script>

@@ -1,0 +1,18 @@
+﻿@model Grunk.Web.UI.Areas.Administration.Models.GenreFormViewModel
+@{
+    string title = Model.GenreId.HasValue ? "Rediger genre" : "Opret genre";
+}
+<h1>@title</h1>
+@using (Html.BeginForm("CreateOrUpdate", "Genres", new { genreId = Model.GenreId }, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <div class="control-group">
+        <label class="control-label">Navn:</label> 
+        <div class="controls">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+    </div>
+    <div class="form-actions">
+        <input class="btn" type="submit" value="Gem" />
+    </div>
+}

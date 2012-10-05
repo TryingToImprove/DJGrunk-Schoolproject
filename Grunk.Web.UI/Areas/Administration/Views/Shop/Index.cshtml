@@ -1,0 +1,47 @@
+﻿@model IndexShopViewModel
+@{
+    ViewBag.Title = "Index";
+}
+<div class="page-header">
+    <h1>
+        Oversigt over produkter</h1>
+</div>
+@Html.Partial("_Messages")
+<table class="table">
+    <tr>
+        <th>
+        </th>
+        <th>
+            Titel
+        </th>
+        <th>
+            Kunstner
+        </th>
+        <th>
+            Pris
+        </th>
+        <th>
+        </th>
+    </tr>
+    @foreach (var item in Model.Albums)
+    {
+        <tr>
+            <td>
+                <img src="@item.GetPicture(50, 50)" alt="cover" />
+            </td>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @item.Artist.Name
+            </td>
+            <td>
+                @item.Price
+            </td>
+            <td>
+                @Html.ActionLink("Ret", "Update", new { id = item.AlbumId }, new { @class = "btn" })
+                @Html.ActionLink("Slet", "Delete", new { id = item.AlbumId }, new { @class = "btn" })
+            </td>
+        </tr>
+    }
+</table>

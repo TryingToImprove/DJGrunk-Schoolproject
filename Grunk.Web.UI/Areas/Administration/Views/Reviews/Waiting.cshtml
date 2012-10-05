@@ -1,0 +1,7 @@
+﻿@model WaitingReviewsViewModel
+<div class="page-header">
+    <h1>
+        Oversigt over anmeldelser der venter på godkendelse</h1>
+</div>
+@Html.Partial("_Messages")
+@Html.Partial("_ReviewTable", Model.Reviews)

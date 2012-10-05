@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D165995A-DFFF-4202-AC76-689BB54EAD72}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Grunk.Web.UI</RootNamespace>
+    <AssemblyName>Grunk.Web.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap, Version=2.6.4.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\Controllers\GenresController.cs" />
+    <Compile Include="Areas\Administration\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Administration\Controllers\ProfilesController.cs" />
+    <Compile Include="Areas\Administration\Controllers\ReviewsController.cs" />
+    <Compile Include="Areas\Administration\Controllers\ShopController.cs" />
+    <Compile Include="Areas\Administration\Controllers\StoreDetailsController.cs" />
+    <Compile Include="Areas\Administration\Controllers\TextController.cs" />
+    <Compile Include="Areas\Administration\Models\IndexStoreDetailsViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\UpdateReviewsViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\UpdateStaticText.cs" />
+    <Compile Include="Areas\Administration\Models\WaitingReviewsViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\RejectedReviewsViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\IndexReviewsViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\UpdateShopViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\CreateShopViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\GenreFormViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\IndexGenresViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\IndexShopViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\ProductFormViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\UpdateProfilesViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\IndexProfilesViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\LoginDetailsViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\LoginFormViewModel.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReviewsController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
+    <Compile Include="Models\ContactInformationViewModel.cs" />
+    <Compile Include="Models\CreatedReviewsViewModel.cs" />
+    <Compile Include="Models\CreateProfileFormViewModel.cs" />
+    <Compile Include="Models\CreateReviewsViewModel.cs" />
+    <Compile Include="Models\DetailShopViewModel.cs" />
+    <Compile Include="Models\ForgotPasswordProfileViewModel.cs" />
+    <Compile Include="Models\IndexContactViewModel.cs" />
+    <Compile Include="Models\IndexHomeViewModel.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\UtilityController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CreateProfileViewModel.cs" />
+    <Compile Include="Models\IndexReviewsViewModel.cs" />
+    <Compile Include="Models\IndexShopViewModel.cs" />
+    <Compile Include="Models\LoginFormViewModel.cs" />
+    <Compile Include="Models\MyProfileViewModel.cs" />
+    <Compile Include="Models\OnlineLoginContainerViewModel.cs" />
+    <Compile Include="Models\PagedViewModel.cs" />
+    <Compile Include="Models\SendMailFormViewModel.cs" />
+    <Compile Include="Models\UpdateDescriptionProfileViewModel.cs" />
+    <Compile Include="Models\UpdatePictureProfileViewModel.cs" />
+    <Compile Include="Models\VerifyPurchaseShopViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\GrunkedDatabase.mdf" />
+    <Content Include="App_Data\GrunkedDatabase_log.ldf">
+      <DependentUpon>GrunkedDatabase.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\storedetails.xml" />
+    <Content Include="Content\Admin\css\bootstrap-responsive.css" />
+    <Content Include="Content\Admin\css\bootstrap-responsive.min.css" />
+    <Content Include="Content\Admin\css\bootstrap.css" />
+    <Content Include="Content\Admin\css\bootstrap.min.css" />
+    <Content Include="Content\Admin\img\glyphicons-halflings-white.png" />
+    <Content Include="Content\Admin\img\glyphicons-halflings.png" />
+    <Content Include="Content\Admin\js\bootstrap.js" />
+    <Content Include="Content\dummy.jpg" />
+    <Content Include="Content\GFX\basket-large.png" />
+    <Content Include="Content\GFX\basket.png" />
+    <Content Include="Content\GFX\logo.png" />
+    <Content Include="Content\GFX\menu-bg.png" />
+    <Content Include="Content\GFX\person.png" />
+    <Content Include="Content\GFX\selected-menu-bg.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Prototype\Contact.html" />
+    <Content Include="Prototype\ShopDetails.html" />
+    <Content Include="Prototype\Shop.html" />
+    <Content Include="Prototype\CreateProfile.html" />
+    <Content Include="Prototype\MyProfile.html" />
+    <Content Include="Prototype\Reviews.html" />
+    <Content Include="Prototype\Default.html" />
+    <Content Include="Scripts\backbone.js" />
+    <Content Include="Scripts\handlebars-1.0.js" />
+    <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.5.1.js" />
+    <Content Include="Scripts\jquery-1.5.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\modernizr-1.7.js" />
+    <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Scripts\scripts.js" />
+    <Content Include="Scripts\underscore.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Administration\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Grunk.DependencyInjection\Grunk.DependencyInjection.csproj">
+      <Project>{C70281AD-97C6-4EAA-A0BB-B6456FFB761E}</Project>
+      <Name>Grunk.DependencyInjection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Grunk.Domain\Grunk.Domain.csproj">
+      <Project>{9E7D994E-3AE5-4B45-8F2B-F3353223FD7E}</Project>
+      <Name>Grunk.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Grunk.Security\Grunk.Security.csproj">
+      <Project>{9ADE697D-2F33-4307-89C6-F66864BFB863}</Project>
+      <Name>Grunk.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Grunk.Services\Grunk.Services.csproj">
+      <Project>{EEE8FF5B-13F6-4A6C-A2B8-223BDE64B4D3}</Project>
+      <Name>Grunk.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Grunk.Web\Grunk.Web.csproj">
+      <Project>{69388E14-7DD6-4960-A32C-C983B2251D07}</Project>
+      <Name>Grunk.Web</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Profile\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Administration\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Home\Login.cshtml" />
+    <Content Include="Areas\Administration\Views\Home\_LoginDetails.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Administration\Views\Shared\_AdminLayout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Profile\_CreateProfileForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Profile\MyProfile.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Administration\Views\Profiles\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Administration\Views\Profiles\Update.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\Uploads\Products\" />
+    <Folder Include="Content\Uploads\Profiles\" />
+    <Folder Include="Content\Uploads\Reviews\" />
+    <Folder Include="Content\Uploads\Temp\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Administration\Views\Shop\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Administration\Views\Genres\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Administration\Views\Genres\CreateOrUpdate.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Administration\Views\Shop\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Administration\Views\Shop\_ProductForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Administration\Views\Shop\Update.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shop\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Pagination.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shop\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shop\VerifyPurchase.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Utility\TopList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Utility\_OnlineLoginContainer.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Utility\_OfflineLoginContainer.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_LoginForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Administration\Views\Reviews\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Reviews\_ReviewTable.cshtml" />
+    <Content Include="Areas\Administration\Views\Reviews\Rejected.cshtml" />
+    <Content Include="Areas\Administration\Views\Reviews\Waiting.cshtml" />
+    <Content Include="Areas\Administration\Views\Reviews\Update.cshtml" />
+    <Content Include="Areas\Administration\Views\StoreDetails\Index.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Contact\Information.cshtml" />
+    <Content Include="Views\Contact\_SendMailForm.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\_Messages.cshtml" />
+    <Content Include="Areas\Administration\Views\Text\Update.cshtml" />
+    <Content Include="Views\Profile\ForgotPassword.cshtml" />
+    <None Include="Views\Profile\_UpdateDescription.cshtml" />
+    <Content Include="Views\Reviews\Create.cshtml" />
+    <Content Include="Views\Reviews\Index.cshtml" />
+    <Content Include="Views\Utility\NewestReview.cshtml" />
+    <Content Include="Views\Reviews\Created.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Profile\_UpdatePicture.cshtml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55848</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

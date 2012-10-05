@@ -1,0 +1,26 @@
+﻿@using Grunk.Web.Services;
+@{
+    string tempFieldName = "Messages";
+
+    if (TempData[tempFieldName] != null && TempData[tempFieldName].GetType() == typeof(MessageHandler))
+    {
+
+        MessageHandler messageHandler = (MessageHandler)TempData[tempFieldName];
+
+        foreach (var item in messageHandler)
+        {
+    <div class="alert @item.CssClass">
+        <button type="button" class="close" data-dismiss="alert">
+            ×</button>
+        @if (!string.IsNullOrWhiteSpace(item.Title.ToString()))
+        {
+            <h4>@item.Title</h4>
+        }
+        @if (!string.IsNullOrWhiteSpace(item.Content.ToString()))
+        {
+            <p>@item.Content</p>
+        }
+    </div>
+        }
+    }
+}

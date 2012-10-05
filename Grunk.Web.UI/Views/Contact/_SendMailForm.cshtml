@@ -1,0 +1,50 @@
+﻿@model SendMailFormViewModel
+@using (Html.BeginForm("Index", "Contact", FormMethod.Post, new { @class = "contact-form" }))
+{
+    <div class="control-group">
+        <label>
+            Navn:</label>
+        <div class="controls">
+            @Html.TextBoxFor(x => x.Name)
+            @Html.ValidationMessageFor(x => x.Name)
+        </div>
+    </div>
+    <div class="control-group">
+        <label>
+            Adresse:</label>
+        <div class="controls">
+            @Html.TextBoxFor(x => x.Address)
+            @Html.ValidationMessageFor(x => x.Address)
+        </div>
+    </div>
+    <div class="control-group">
+        <label>
+            Telefon :</label>
+        <div class="controls">
+            @Html.TextBoxFor(x => x.Telephone)
+            @Html.ValidationMessageFor(x => x.Telephone)
+        </div>
+    </div>
+    <div class="control-group">
+        <label>
+            E-mail:</label>
+        <div class="controls">
+            @Html.TextBoxFor(x => x.Email)
+            @Html.ValidationMessageFor(x => x.Email)
+        </div>
+    </div>
+    <div class="control-group">
+        <label>
+            Spørgsmål eller kommentar:</label>
+        <div class="controls">
+            @Html.TextAreaFor(x => x.Text, new { rows = 10 })
+            @Html.ValidationMessageFor(x => x.Text)
+        </div>
+    </div>
+    <div class="control-group no-label">
+        <div class="controls">
+            <input type="reset" value="Fortryd" class="btn btn-largeTxt" />
+            <input type="submit" value="Send" class="btn btn-largeTxt" />
+        </div>
+    </div>
+}

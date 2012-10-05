@@ -1,0 +1,36 @@
+﻿@model Grunk.Web.UI.Models.IndexReviewsViewModel
+<div class="reviews">
+    <p>
+        <a href="@Url.Action("Create")">Klik her for at skrive din anmeldelse</a>
+    </p>
+    <p>
+        (Husk at din anmeldelse først bliver vist når DJ Grunk har godkendt den
+    </p>
+    <div class="review-list">
+        @{ int index = 0; }
+        @foreach (var item in Model.Reviews)
+        {
+            bool isSecond = (index % 2 == 1);
+            index++;
+            <article class="item  @if (isSecond)
+                                  { <text>second-row</text>}">
+                <img src="@item.GetPicture(100, 100)" alt="Anmeldelse" />
+                <div>
+                    <h1>
+                        @item.Title</h1>
+                    <p>
+                        @item.Description
+                    </p>
+                    <footer>
+                        <span class="author">/@item.Profile.Credential.UserName</span>
+                        @if (item.ReviewLink != null)
+                        {
+                            <span class="link">Link: <a target="_blank" href="@item.ReviewLink.FullUrl">@item.ReviewLink.PrettyUrl</a></span>
+                        }
+                    </footer>
+                </div>
+            </article>
+        }
+        @Html.Partial("_Pagination", Model.Paged)
+    </div>
+</div>

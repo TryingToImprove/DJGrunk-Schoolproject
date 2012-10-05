@@ -1,0 +1,61 @@
+﻿@model Grunk.Web.UI.Models.DetailsShopViewModel
+<div class="shop-detail">
+    @if (TempData["Success"] != null && (bool)TempData["Success"])
+    {
+        <div>
+            <p>@TempData["Message"]</p>
+        </div>
+    }
+    <div>
+        <img src="@Model.Album.GetPicture(200, 200)" alt="Album cover" class="cover-picture" />
+        <div class="information">
+            <div class="detail colored">
+                <label>
+                    Kunster:</label>
+                <div class="details">
+                    <span>@Model.Album.Artist.Name</span>
+                </div>
+            </div>
+            <div class="detail">
+                <label>
+                    Titel:</label>
+                <div class="details">
+                    <span>@Model.Album.Name</span>
+                </div>
+            </div>
+            <div class="detail colored">
+                <label>
+                    Genre:</label>
+                <div class="details">
+                    <span>@Model.Album.Genre.Name</span>
+                </div>
+            </div>
+            <div class="detail">
+                <label>
+                    Oprettet:</label>
+                <div class="details">
+                    <span>@Model.Album.CreationDateTime.ToString("dd/MM/yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo)</span>
+                </div>
+            </div>
+            <div class="detail colored">
+                <label>
+                    Pris:</label>
+                <div class="details">
+                    <span>@Model.Album.Price Grunker </span>
+                </div>
+            </div>
+        </div>
+        <div class="purchase">
+            <a  class="buy-album" data-albumName="@Model.Album.Name" data-largePicture="@Model.Album.GetPicture(200, 200)" data-artistName="@Model.Album.Artist.Name" data-price="@Model.Album.Price" data-albumId="@Model.Album.AlbumId" href="@Url.Action("VerifyPurchase", new { id = Model.Album.AlbumId })">
+                <img src="/Content/GFX/basket-large.png" />
+            </a>
+        </div>
+    </div>
+    <div id="buy-module" class="module-popup hide">
+    </div>
+    <script src="@Url.Content("~/Scripts/handlebars-1.0.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/underscore.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/backbone.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/scripts.js")" type="text/javascript"></script>
+</div>
+<a href="@Url.Action("Index", "Shop")"><strong>Tilbage</strong></a> </div> 

@@ -1,0 +1,35 @@
+﻿@model Grunk.Web.UI.Models.CreateProfileFormViewModel
+@Html.ValidationSummary(true)
+<div class="control-group">
+    @Html.LabelFor(x => x.Username)
+    <div class="controls">
+        @Html.TextBoxFor(x => x.Username)
+        @Html.ValidationMessageFor(x => x.Username)
+    </div>
+</div>
+<div class="control-group">
+    @Html.LabelFor(x => x.Password)
+    <div class="controls">
+        @Html.PasswordFor(x => x.Password)
+        @Html.ValidationMessageFor(x => x.Password)
+    </div>
+</div>
+<div class="control-group">
+    @Html.LabelFor(x => x.Description)
+    <div class="controls">
+        @Html.TextAreaFor(x => x.Description, new { rows = "5" })
+        @Html.ValidationMessageFor(x => x.Description)
+    </div>
+</div>
+<div class="control-group">
+    @Html.LabelFor(x => x.Picture)
+    <div class="controls">
+        @Html.TextBoxFor(x => x.Picture, new { type = "file" })
+        @Html.ValidationMessageFor(x => x.Picture)
+    </div>
+</div>
+<div class="control-group no-label">
+    <div class="controls">
+        <input type="submit" value="Opret bruger" class="btn btn-largeTxt" />
+    </div>
+</div>

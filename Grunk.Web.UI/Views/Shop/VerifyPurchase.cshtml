@@ -1,0 +1,23 @@
+﻿@model Grunk.Web.UI.Models.VerifyPurchaseShopViewModel
+@{
+    ViewBag.Title = "VerifyPurchase";
+}
+<h1>
+    Godkend købet</h1>
+<p>
+    Er du sikker på at du vil købe albummet @Model.Album.Name af @Model.Album.Artist.Name
+</p>
+@if (TempData["Error"] != null && (bool)TempData["Error"])
+{
+    <div>
+        <p>@TempData["Message"]</p>
+    </div>
+}
+else
+{
+    using (Html.BeginForm("Purchase", "Shop", new { id = Model.Album.AlbumId }))
+    {
+    <input type="submit" value="Ja" name="Verify" />
+    @Html.ActionLink("Fortryd", "Details", new { id = Model.Album.AlbumId })
+    }
+}

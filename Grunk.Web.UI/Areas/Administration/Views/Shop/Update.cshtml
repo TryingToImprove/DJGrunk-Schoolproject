@@ -1,0 +1,21 @@
+﻿@model UpdateShopViewModel
+<div class="page-header">
+    <h1>
+        Rediger album</h1>
+</div>
+@Html.Partial("_Messages")
+@using (Html.BeginForm("Update", "Shop", new { id = Model.AlbumId }, FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+    @Html.PartialFor(x => x.ProductForm, "_ProductForm")
+    <div class="control-group">
+        <label class="control-label">
+            Cover:</label>
+        <div class="controls">
+            @Html.TextBoxFor(model => model.Cover, new { type = "file" })
+            @Html.ValidationMessageFor(model => model.Cover)
+        </div>
+    </div>
+    <div class="form-actions">
+        <input type="submit" class="btn btn-primary" value="Opret" />
+    </div>
+}

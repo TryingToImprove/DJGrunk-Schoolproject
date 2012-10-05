@@ -1,0 +1,13 @@
+﻿@model OnlineLoginContainerViewModel
+<div class="pull-right">
+    <p>
+        Du er logget ind som <b>@Model.Profile.Credential.UserName</b>
+    </p>
+    <p>
+        Du har <b>@Model.Profile.GetSum()</b> grunker tilbage
+    </p>
+    <p>
+        <a href="@Url.Action("Index", "Profile")"><em>Min profil</em></a> -
+        <a href="@Url.Action("SignOut", "Profile")"><em>Log ud</em></a>
+    </p>
+</div>

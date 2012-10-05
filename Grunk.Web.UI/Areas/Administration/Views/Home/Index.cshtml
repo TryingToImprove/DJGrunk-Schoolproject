@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Index";
+
+    var user = (Grunk.Security.ICustomIdentity)User.Identity;
+}
+<div class="row-fluid">
+    <div class="span6">
+        <h2>
+            Hej @user.FirstName @user.LastName</h2>
+        <p>
+            Her har du mulighed for at administere DJ Grunk's hjemmeside.<br />
+            Du kan blandt andet:<br />
+        </p>
+        <ul>
+            <li>Oprette og redigere albums </li>
+            <li>Se bruger, give grunks og rette beskrivelser</li>
+            <li>Rette anmeldelser</li>
+            <li>Godkende og afvise anmeldelser</li>
+            <li>Opdatere indhold på forside og kontakt</li>
+            <li>Opdatere informationer omkring DJ Grunk </li>
+        </ul>
+        <p>
+            For at komme igang skal du vælge et punkt på menuen til venstre
+        </p>
+    </div>
+    <div class="span6">
+        <img src="@Url.Content("~/Content/GFX/person.png")" alt="Sjov abe" class="img-rounded" />
+    </div>
+</div>

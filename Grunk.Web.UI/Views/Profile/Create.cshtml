@@ -1,0 +1,40 @@
+﻿@model CreateProfileViewModel
+<div class="row create-profile">
+    @if (ViewData["IsReturnUrlSet"] != null && (bool)ViewData["IsReturnUrlSet"])
+    {
+        <div class="message-box">
+            <h1>
+                Ikke godkendt!</h1>
+            <p>
+                Denne side kræver du er logget ind.
+            </p>
+        </div>
+    }
+    <div class="cell-one">
+        <section>
+            @if (TempData["LoginMessage"] != null)
+            {
+                <section>
+                    @if (TempData["LoginHeader"] != null)
+                    {
+                        <h3>
+                            @TempData["LoginHeader"]</h3>
+                    }
+                    <p>@TempData["LoginMessage"]</p>
+                </section>
+            }
+            <h1>
+                Log ind</h1>
+            @Html.Partial("_LoginForm", Model.LoginForm)
+        </section>
+    </div>
+    <div class="cell-two">
+        <h1>
+            Opret bruger
+        </h1>
+        @using (Html.BeginForm("Create", "Profile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.PartialFor(x => x.CreateProfileForm, "_CreateProfileForm")
+        }
+    </div>
+</div>

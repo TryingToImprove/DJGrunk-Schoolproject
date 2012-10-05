@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Grunk.Domain.Album>
+<article class="hitlist">
+    <h1>
+        Grunklisten - seneste 30 dage</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    #
+                </th>
+                <th>
+                    Kunster
+                </th>
+                <th>
+                    Titel
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 1; i < Model.Count() + 1; i++)
+            {
+                var item = Model.ElementAt(i - 1);
+                bool first = !(i % 2 == 0);
+                <tr @if (first)
+                    { <text>class="second"</text> }>
+                    <td class="num">
+                        @i
+                    </td>
+                    <td class="artist">
+                        @item.Artist.Name
+                    </td>
+                    <td class="title">
+                        @item.Name
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</article>

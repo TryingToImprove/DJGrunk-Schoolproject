@@ -1,0 +1,633 @@
+/* CSS Resets */
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, img, ins, q, small, strong, sub, sup, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td
+{
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+article, aside, figure, figure img, figcaption, hgroup, footer, header, nav, section, video, object
+{
+    display: block;
+}
+a img
+{
+    border: 0;
+}
+figure
+{
+    position: relative;
+}
+figure img
+{
+    width: 100%;
+}
+
+/* styles */
+
+body
+{
+    font-family: Verdana;
+    font-size: 10px;
+}
+
+textarea, button, input
+{
+    border: 1px solid #000;
+    font-family: Verdana;
+    font-size: 10px;
+}
+
+a
+{
+    color: White;
+    text-decoration: none;
+}
+
+h1
+{
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+p
+{
+    margin: 5px 0;
+}
+
+.btn
+{
+    background-color: #c0c0c0;
+}
+
+.btn-largeTxt
+{
+    text-transform: uppercase;
+}
+
+.container
+{
+    background: #333333;
+    color: #FFFFFF;
+    width: 750px;
+    margin: 0 auto;
+}
+
+.control-group
+{
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+.control-group label
+{
+    float: left;
+    width: 140px;
+}
+.control-group .controls
+{
+    float: right;
+    width: 254px;
+}
+
+.no-label .controls
+{
+    padding-left: 140px;
+    float: left;
+    width: 255px;
+}
+.control-group .controls textarea
+{
+    float: left;
+    width: 240px;
+}
+
+
+
+/* top bar */
+
+.top-bar
+{
+    overflow: hidden;
+}
+
+.top-bar .logo
+{
+    float: left;
+    width: 355px;
+    height: 98px;
+    margin-left: 8px;
+}
+
+.top-bar .pull-right
+{
+    float: right;
+    margin-top: 15px;
+    margin-right: 56px;
+}
+
+.top-bar form div
+{
+    overflow: hidden;
+    margin-bottom: 3px;
+}
+.top-bar form div label
+{
+    margin-top: 2px;
+    display: block;
+    float: left;
+    width: 80px;
+}
+.top-bar form div .text-input
+{
+    float: right;
+    width: 113px;
+}
+.top-bar form .form-actions
+{
+    padding-left: 80px;
+}
+
+.top-bar p
+{
+    text-align: center;
+}
+
+/* menu */
+nav
+{
+    background-image: url('/Content/GFX/menu-bg.png');
+    overflow: hidden;
+}
+
+nav a
+{
+    padding: 6px;
+    font-size: 12px;
+    display: block;
+    width: 138px;
+    float: left;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+}
+
+nav .selected
+{
+    background-image: url('/Content/GFX/selected-menu-bg.png');
+}
+
+/* content */
+
+.content
+{
+    padding: 30px 45px;
+}
+
+
+/* row-cell handling */
+
+.row
+{
+    width: 660px;
+    overflow: hidden;
+}
+
+.row .cell-one
+{
+    width: 250px;
+    float: left;
+    margin-right: 15px;
+}
+
+.row .cell-two
+{
+    width: 395px;
+    float: left;
+}
+
+/* frontpage */
+
+.frontpage .hitlist
+{
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+}
+.frontpage .hitlist h1
+{
+    color: White;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #999999;
+    text-align: center;
+    line-height: 20px;
+}
+
+.frontpage .hitlist table
+{
+    width: 100%;
+    border-collapse: collapse;
+}
+.frontpage .hitlist table thead tr th
+{
+    padding: 2px 0;
+}
+.frontpage .hitlist table tbody tr td
+{
+    padding: 2px 0;
+    text-transform: uppercase;
+}
+
+.frontpage .hitlist table tbody tr .num
+{
+    width: 15px;
+    text-align: center;
+}
+.frontpage .hitlist table tbody tr .artist
+{
+    width: 108px;
+}
+.frontpage .hitlist table tbody tr .title
+{
+}
+
+.frontpage .hitlist table tbody .second td
+{
+    background-color: #999999;
+}
+
+.frontpage .welcome-text
+{
+    border-bottom: 1px solid white;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.frontpage .welcome-text h1
+{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.frontpage .welcome-text p
+{
+    margin: 5px 0;
+}
+
+.frontpage .last-review h1
+{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.frontpage .last-review p
+{
+    margin: 5px 0;
+}
+
+/* REVIEWS */
+
+.review-list
+{
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+.review-list .item
+{
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.review-list .item img
+{
+    float: left;
+    width: 100px;
+}
+.review-list .item div
+{
+    padding:10px 10px 10px 0;
+    width: 538px;
+    padding-left: 11px;
+    float: left;
+}
+
+.review-list .item div footer
+{
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.review-list .item div footer .author
+{
+    float: left;
+}
+
+.review-list .item div footer .link
+{
+    float: right;
+}
+
+.review-list .item div footer .link a
+{
+}
+
+/* Pager */
+
+.pager
+{
+    text-align: center;
+}
+
+.pager .selected
+{
+    font-weight: bold;
+}
+
+
+.contact
+{
+}
+
+.contact .cell-two
+{
+    width: 394px;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+.detail
+{
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.detail label
+{
+    width: 140px;
+    display: block;
+    font-weight: bold;
+    float: left;
+}
+.detail .details
+{
+    float: left;
+    width: 220px;
+}
+.detail .details p
+{
+    margin: 0 0;
+}
+.detail .details .period
+{
+    overflow: hidden;
+}
+.detail .details .period .days
+{
+    float: left;
+}
+.detail .details .period .time
+{
+    float: right;
+}
+
+
+.my-profile .profile-picture
+{
+    width: 100%;
+}
+
+.my-profile .detail label
+{
+    width: 85px;
+}
+
+.my-profile .detail .details
+{
+    width: 309px;
+}
+
+.my-profile .detail .details table tr td
+{
+    padding-right: 7px;
+}
+
+.my-profile .cell-two
+{
+    width: 394px;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+.shop-index table
+{
+   margin-top:10px;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.shop-index table thead tr th
+{
+    background-color: #999999;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 2px 0;
+}
+
+.shop-index table .picture-cell
+{
+    width: 55px;
+}
+
+.shop-index table tbody tr td
+{
+    padding: 5px 5px;
+}
+
+
+.shop-index table img
+{
+    width: 50px;
+}
+
+.shop-index table .artist-cell
+{
+}
+
+.shop-index table .title-cell
+{
+    width: 135px;
+}
+
+.shop-index table .genre-cell
+{
+    width: 65px;
+}
+
+.shop-index table .creation-cell
+{
+    width: 110px;
+}
+
+.shop-index table .price-cell
+{
+    width: 110px;
+}
+
+.shop-index table .purchase-cell
+{
+    width: 30px;
+}
+
+.shop-index table .purchase-cell img
+{
+    width: 22px;
+    height: 21px;
+}
+
+.shop-detail
+{
+    overflow: hidden;
+    margin-bottom: 10px;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+.shop-detail .cover-picture
+{
+    width: 200px;
+    float: left;
+    margin-right: 8px;
+}
+
+.shop-detail .information
+{
+    float: left;
+    width: 250px;
+}
+
+.shop-detail .information .detail
+{
+    margin-bottom: 0px;
+    padding: 7px 3px;
+    overflow: hidden;
+}
+
+.shop-detail .information .colored
+{
+    background-color: #999999;
+}
+
+.shop-detail .information .detail label
+{
+    float: left;
+    width: 104px;
+}
+.shop-detail .information .detail .details
+{
+    float: left;
+    width: 140px;
+}
+
+.shop-detail .purchase
+{
+    float: left;
+    text-align: center;
+    width: 190px;
+    padding-top: 40px;
+}
+
+.second-row
+{
+    background-color: #999;
+}
+.message-box
+{
+    padding:10px;
+    background-color:#999;
+    margin-bottom:10px;
+}
+
+.create-review .controls
+{
+    float:left;
+}
+
+
+.module-popup
+{
+    position:fixed;
+    top:70px;
+    background:#FFF;
+    color:black;
+    width:620px;
+    border-radius:4px;
+    font-size:14px;
+    padding:20px;
+}
+.module-popup a
+{
+    color:Blue;
+}
+
+.module-popup h1
+{
+    font-weight:normal;
+    font-size:20px;
+}
+
+.module-popup img
+{
+    float:left;
+    margin-right:2%;
+    width:30%;
+}
+
+.module-popup .content
+{
+    float:left;
+    padding:0;
+    width:60%;
+}
+
+.module-popup dl
+{
+    margin-bottom:10px;
+}
+
+.module-popup .loader
+{
+    font-style:italic;
+}
+ 
+.module-popup .success
+{
+    color:Green;
+    font-weight:bold;
+}
+ 
+.module-popup .error
+{
+    color:Red;
+} 
+.module-popup .close
+{
+    display:block;
+    margin-top:10px;
+}.module-popup .close:hover
+{
+    text-decoration:underline;
+    color:darkblue;
+}
+ 
+.module-popup dl dt
+{
+    font-weight:bold;
+}
+
+.hide
+{
+    display:none;
+}

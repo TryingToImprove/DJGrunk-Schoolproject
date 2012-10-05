@@ -1,0 +1,22 @@
+﻿@model LoginFormViewModel
+@using (Html.BeginForm("SignIn", "Profile", new { returnUrl = ViewData["ReturnUrl"] }, FormMethod.Post, new { @class = "pull-right" }))
+{
+    <div>
+        <label>
+            Brugernavn:</label>
+        @Html.TextBoxFor(x => x.UserName, new { @class = "text-input" })
+        @Html.ValidationMessageFor(x => x.UserName)
+    </div>
+    <div>
+        <label>
+            Kodeord:</label>
+        @Html.PasswordFor(x => x.Password, new { @class = "text-input" })
+        @Html.ValidationMessageFor(x => x.Password)
+    </div>
+    <div class="form-actions">
+        <input class="btn" type="submit" value="Log ind" />
+    </div>
+    <p>
+        <a href="@Url.Action("ForgotPassword", "Profile")">Glemt kodeord?</a>
+    </p>
+}

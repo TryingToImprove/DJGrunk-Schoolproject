@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Review>
+@if (Model.Count() > 0)
+{
+    <table class="table">
+        <tr>
+            <th width="100">
+            </th>
+            <th>
+                Titel
+            </th>
+            <th>
+                Indhold
+            </th>
+            <th>
+                Oprettet
+            </th>
+            <th width="100">
+                Status
+            </th>
+            <th width="350">
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            string state = ((ReviewState)item.State).GetDanishName();
+            <tr>
+                <td>
+                    <img src="@item.GetPicture(100, 100)" alt="profilbillede" />
+                </td>
+                <td>
+                    @item.Title
+                </td>
+                <td>
+                    @item.Description
+                </td>
+                <td>
+                    @item.CreationDateTime
+                </td>
+                <td>
+                    @state
+                </td>
+                <td>
+                    @Html.ActionLink("Ret", "Update", new { id = item.ReviewId }, new { @class = "btn" })
+                    @if (item.State == (short)ReviewState.WaitingForApproval || item.State == (short)ReviewState.NotApproved)
+                    {
+                        using (Html.BeginForm("ChangeState", "Reviews", new { id = item.ReviewId, state = (short)ReviewState.Approved }, FormMethod.Post, new { @style = "padding-left:4px;display:inline-block; margin:0" }))
+                        {
+                        <input type="submit" class="btn btn-primary" value="Godkend" />
+                        }
+                    }
+                    else if (item.State == (short)ReviewState.Approved)
+                    {
+                        using (Html.BeginForm("ChangeState", "Reviews", new { id = item.ReviewId, state = (short)ReviewState.NotApproved }, FormMethod.Post,
+                    new { @style = "padding-left:4px;display:inline-block; margin:0" }))
+                        {
+                        <input type="submit" class="btn" value="Afvis" />
+                        }
+                    }
+                    @using (Html.BeginForm("Delete", "Reviews", new { id = item.ReviewId }, FormMethod.Post,
+                new { @style = "padding-left:4px;display:inline-block; margin:0" }))
+                    {
+                        <input type="submit" class="btn" value="Slet" />
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+}

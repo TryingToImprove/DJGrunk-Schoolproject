@@ -1,0 +1,22 @@
+﻿@model Grunk.Domain.Review
+<section class="last-review">
+    <h1>
+        Seneste anmeldelse:</h1>
+    @if (Model != null)
+    {
+        <p>
+            @Model.Description
+        </p>
+        <p>
+            /@Model.Profile.Credential.UserName
+        </p>
+        <p>
+            <a href="#">Læs mere her</a>
+        </p>
+    }
+    else
+    {
+        <p>
+            Der er ikke oprettet nogle anmeldelser ellers er der ingen godkendte endnu</p>
+    }
+</section>

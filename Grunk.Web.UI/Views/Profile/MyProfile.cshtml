@@ -1,0 +1,119 @@
+﻿@model MyProfileViewModel
+<div class="row my-profile">
+    <div class="cell-one">
+        <img src="@Model.Profile.GetPicture(250, 250)" alt="Profil billede" class="profile-picture" />
+    </div>
+    <div class="cell-two">
+        <div class="detail">
+            <label>
+                Brugernavn:</label>
+            <div class="details">
+                <span>@Model.Profile.Credential.UserName</span>
+            </div>
+        </div>
+        <div class="detail">
+            <label>
+                Beskrivelse:</label>
+            <div class="details">
+                <p>
+                    @Model.Profile.Description
+                </p>
+            </div>
+        </div>
+        <div class="detail">
+            <label>
+                Konto:</label>
+            <div class="details">
+                <p>
+                    Du har <b>@Model.Profile.GetSum()</b> Grunker tilbage på kontoen
+                </p>
+            </div>
+        </div>
+        <div class="detail">
+            <label>
+                Tidligere køb:</label>
+            <div class="details">
+                @if (Model.Profile.Purchases.Any())
+                {
+                    <table>
+                        @foreach (var item in Model.Profile.Purchases.ToList())
+                        {
+                            var album = item.Album;
+                            <tr>
+                                <td>
+                                    @album.Artist.Name
+                                </td>
+                                <td>
+                                    @album.Name
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                }
+                else
+                {
+                    <p>
+                        Du har ikke købt noget endnu</p>
+                }
+            </div>
+        </div>
+        <div class="detail">
+            <label>
+                Rediger:</label>
+            <div class="details">
+                <div id="update-home">
+                    <p>
+                        <a href="#" data-target="update-description">Ret beskrivelse</a>
+                    </p>
+                    <p>
+                        <a href="#" data-target="update-picture">Skift profilbillede</a>
+                    </p>
+                </div>
+                <div id="update-description" class="hideMe">
+                    @using (Html.BeginForm("UpdateDescription", "Profile", new { id = Model.Profile.ProfileId }))
+                    {
+                        @Html.Action("UpdateDescription", new { id = Model.Profile.ProfileId })
+                        <p>
+                            <input type="submit" value="Gem" />
+                            <a href="#" data-target="update-description" class="reqret">Fortryd</a>
+                        </p>
+                    }
+                </div>
+                <div id="update-picture" class="hideMe">
+                    @using (Html.BeginForm("UpdatePicture", "Profile", new { id = Model.Profile.ProfileId }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.Action("UpdatePicture", new { id = Model.Profile.ProfileId })
+                        <p>
+                            <input type="submit" value="Gem" />
+                            <a href="#" data-target="update-picture" class="reqret">Fortryd</a>
+                        </p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+
+        $(".hideMe").hide();
+
+        $(".reqret").click(function () {
+            $("#" + $(this).data("target")).hide();
+
+            $("#update-home").show();
+
+            return false;
+        });
+
+        $("a", "#update-home").click(function () {
+
+            $("#" + $(this).data("target")).show();
+
+            $("#update-home").hide();
+
+            return false;
+        });
+
+    });
+</script>
